@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<!--框架必需start-->
+<script type="text/javascript" src="../../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../libs/js/framework.js"></script>
+<link href="../../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../../" scrollerY="false"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+
+<!--浮动面板start-->
+<script type="text/javascript" src="../../libs/js/popup/floatPanel.js"></script>
+<!--浮动面板end-->
+<script>
+	function initComplete(){
+		$("#floatPanel-1").render();
+	}
+</script>
+</head>
+<body>
+		
+
+	<div class="floatPanel" panelWidth="260" panelHeight="240"  animatefirst="false" direction="mr" duration="200"  init="show" id="floatPanel-1" beforeClickText="关闭面板" afterClickText="打开面板">
+		这里自定义了面板伸缩的时间为200毫秒<br/>对于左右展开的面板，最好设置panelHeight，否则文字内容太少，否则按钮高度大于面板高度会不美观。
+	</div>
+	
+
+</body>
+</html>

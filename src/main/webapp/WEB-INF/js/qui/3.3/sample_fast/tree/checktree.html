@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>带复选框的树</title>
+<!--框架必需start-->
+<script type="text/javascript" src="../../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../libs/js/framework.js"></script>
+<link href="../../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../../"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+
+<!-- ztree start -->
+<script type="text/javascript" src="../../libs/js/tree/ztree/ztree.js"></script>
+<link href="../../libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+<!-- ztree end -->
+
+</head>
+<body>
+  <div class="box1" style="width: 800px;"><div class="box_topcenter"><div class="box_topleft"><div class="box_topright"></div></div></div><div class="box_middlecenter"><div class="box_middleleft"><div class="box_middleright"><div class="boxContent" style="overflow: visible;">
+      
+      <fieldset>
+	      <legend>基本使用</legend>
+	      <div>
+			  <ul id="tree-1" class="ztree"></ul>
+		  </div>
+		  <input type="button" class="button" value="获取选择结果" onclick="getSelectValue();"/>
+	  </fieldset>
+	  <div class="height_15"></div>
+	
+	  
+  
+  </div></div></div></div><div class="box_bottomcenter"><div class="box_bottomleft"><div class="box_bottomright"></div></div></div></div>
+ 
+ <script type="text/javascript">
+	 
+	var setting1 = {
+		check: {
+			enable: true
+		}
+	};
+	
+	var zNodes1 = [
+		{ id:1,  parentId:0, name:"部门1", open: true, checked: true},
+		{ id:11, parentId:1, name:"员工1"},
+		{ id:12, parentId:1, name:"员工2"},
+		{ id:13, parentId:1, name:"员工3", checked:true},
+		{ id:2,  parentId:0, name:"部门2", open: true},
+		{ id:21, parentId:2, name:"员工4(没有复选框)", nocheck: true},
+		{ id:22, parentId:2, name:"员工5"},
+		{ id:23, parentId:2, name:"员工6"},
+		{ id:24, parentId:2, name:"员工7(有复选框，但不可选)", chkDisabled: true}
+	];
+	
+	
+	
+	function initComplete(){
+		$.fn.zTree.init($("#tree-1"), setting1, zNodes1);
+		//显示“父子关联关系”用的 实际项目中不用
+	    setCheck();
+	}
+	
+	//选择结果
+	function getSelectValue(){
+	
+		//获取zTree对象
+		var zTree = $.fn.zTree.getZTreeObj("tree-1");
+		//得到选中的数据集
+		var checkedNodes = zTree.getCheckedNodes(true);
+		//得到未选中的数据集
+		var checkedNodes2 = zTree.getCheckedNodes(false);
+		
+		var msg = "";
+		var msg2 = "";
+		
+		for(var i = 0; i < checkedNodes.length; i++){
+			msg += "," + checkedNodes[i].id;
+		}
+		if(msg == ""){
+			msg = "无选择";
+		}else{
+		    msg = msg.substring(1);
+		}
+		
+		for(var j = 0; j < checkedNodes2.length; j++){
+			msg2 = msg2 + "," + checkedNodes2[j].id;
+		}
+		if(msg2 == ""){
+			msg2 = "无选择";
+		}else{
+		    msg2 = msg2.substring(1);
+		}
+		
+		top.Dialog.alert("已选中:<br/>"+msg+"<br/>未选中：<br/>"+msg2);
+	}
+ </script>
+
+</body>
+</html>

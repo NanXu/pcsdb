@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>单选下拉框</title>
+<!--框架必需start-->
+<script type="text/javascript" src="../../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../libs/js/framework.js"></script>
+<link href="../../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../../"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+</head>
+<body>
+   <div class="box1" style="width: 800px;"><div class="box_topcenter"><div class="box_topleft"><div class="box_topright"></div></div></div><div class="box_middlecenter"><div class="box_middleleft"><div class="box_middleright"><div class="boxContent" style="overflow: visible;height:500px;">
+   		 <fieldset> 
+			<legend>基本使用</legend>
+			<select prompt="请选择员工" id="select-1" data='{"list":[{"value":"1","key":"员工1"},{"value":"2","key":"员工2"}]}'></select><br/>
+			使用单选下拉框时需要手动渲染，其余用法与组件API一致。
+	  </fieldset>
+	  <div class="height_15"></div>
+	</div></div></div></div><div class="box_bottomcenter"><div class="box_bottomleft"><div class="box_bottomright"></div></div></div></div>
+
+
+<script type="text/javascript">
+	function initComplete(){
+		$("#select-1").render();
+	}
+</script>
+
+</body>
+</html>

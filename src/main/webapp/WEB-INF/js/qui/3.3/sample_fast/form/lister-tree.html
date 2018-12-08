@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<!--框架必需start-->
+<script type="text/javascript" src="../../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../libs/js/framework.js"></script>
+<link href="../../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../../"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+
+<!-- 树组件start -->
+<script type="text/javascript" src="../../libs/js/tree/ztree/ztree.js"></script>
+<link type="text/css" rel="stylesheet" href="../../libs/js/tree/ztree/ztree.css"></link>
+<!-- 树组件end -->
+
+<!-- 树形双选器start -->
+<script type="text/javascript" src="../../libs/js/form/listerTree.js"></script>
+<!-- 树形双选器end -->
+</head>
+<body>
+ <div class="box1" style="width: 800px;"><div class="box_topcenter"><div class="box_topleft"><div class="box_topright"></div></div></div><div class="box_middlecenter"><div class="box_middleleft"><div class="box_middleright"><div class="boxContent" style="overflow: visible;height:500px;">
+      <fieldset>  
+        <legend>基本使用</legend>
+    	 <div class="listerTree" id="listerTree-1" data='{"toList":[],"fromList":[{"id":"1","parentId":"0","open":"true","name":"部门1","oldParentId":"null","drag":"false"},{"id":"11","parentId":"1","name":"员工1","oldParentId":"1"},{"id":"12","parentId":"1","name":"员工2","oldParentId":"1"},{"id":"13","parentId":"1","name":"员工3","oldParentId":"1","drag":"false"},{"id":"2","parentId":"0","open":"true","name":"部门2","oldParentId":"null","drag":"false"},{"id":"21","parentId":"2","name":"员工4","oldParentId":"2"}]}'></div>
+		<br/>使用树形双选器时需要手动渲染，其余用法与组件API一致。
+	</fieldset>
+	<div class="height_15"></div>
+</div></div></div></div><div class="box_bottomcenter"><div class="box_bottomleft"><div class="box_bottomright"></div></div></div></div>
+
+<script>
+	function initComplete(){
+		$("#listerTree-1").render(); 
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>树的基本使用</title>
+<!--框架必需start-->
+<script type="text/javascript" src="../../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../libs/js/framework.js"></script>
+<link href="../../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../../"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+
+<!--树组件start -->
+<script type="text/javascript" src="../../libs/js/tree/ztree/ztree.js"></script>
+<link href="../../libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+<!--树组件end -->
+
+</head>
+<body>
+  <div class="box1" style="width: 800px;"><div class="box_topcenter"><div class="box_topleft"><div class="box_topright"></div></div></div><div class="box_middlecenter"><div class="box_middleleft"><div class="box_middleright"><div class="boxContent" style="overflow: visible;">
+      
+      <fieldset>
+          <legend>1、基本示例</legend>
+          <div>
+			  <ul id="tree-1" class="ztree"></ul>
+		  </div>
+      </fieldset>
+      <div class="height_15"></div>
+      
+      
+  
+  </div></div></div></div><div class="box_bottomcenter"><div class="box_bottomleft"><div class="box_bottomright"></div></div></div></div>
+
+<script type="text/javascript">
+
+	var nodes1 = [
+		{ id:1,  parentId:0, name:"部门1", open: true},
+		{ id:11, parentId:1, name:"员工1"},
+		{ id:12, parentId:1, name:"员工2"},
+		{ id:13, parentId:1, name:"员工3"},
+		{ id:14, parentId:1, name:"员工4"},
+		{ id:15, parentId:1, name:"员工5"},
+		{ id:16, parentId:1, name:"员工6"},
+		{ id:17, parentId:1, name:"员工7"},
+		{ id:18, parentId:1, name:"员工8"},
+		{ id:2,  parentId:0, name:"部门2", open: true},
+		{ id:21, parentId:2, name:"员工6"},
+		{ id:22, parentId:2, name:"员工10"},
+		{ id:23, parentId:2, name:"员工11"},
+		{ id:24, parentId:0, name:"部门3(强制显示为父节点样子)", isParent:true}
+	];
+	
+	
+	
+    function initComplete(){
+        //本地数据源
+		$.fn.zTree.init($("#tree-1"), {}, nodes1);
+		
+		
+    }
+    
+</script>
+
+</body>
+</html>

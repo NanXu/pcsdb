@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<!--框架必需start-->
+<script type="text/javascript" src="../../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../libs/js/framework.js"></script>
+<link href="../../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../../"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+</head>
+<body>
+ <div class="box1" style="width: 800px;"><div class="box_topcenter"><div class="box_topleft"><div class="box_topright"></div></div></div><div class="box_middlecenter"><div class="box_middleleft"><div class="box_middleright"><div class="boxContent" style="overflow: visible;">
+     <fieldset> 
+     <legend>1、批量设置提示</legend>
+		 <div id="toolTipDemo">
+			<span title="不超过5字">小尺寸提示</span>
+			<div class="height_10"></div>
+			<span title="图片过大会撑坏网页结构。">中尺寸提示</span>
+			<div class="height_10"></div>
+			<span title="图片过大会撑坏网页结构。对于大图可以强制设置width（不要设置height），这样可以对大图片等比例缩小。图片过大会撑坏网页结构。对于大图可以强制设置width（不要设置height），这样可以对大图片等比例缩小。">大尺寸提示</span><br />
+			<div class="height_10"></div>
+			<span title="图片过大<br/>会<span style='color:red;'>撑坏</span>网页结构。">提示信息含html元素</span>
+		  </div>
+	  </fieldset>
+	  <div class="height_15"></div>
+	  
+	  <fieldset> 
+     <legend>2、第二种提示(非鼠标移入触发)</legend>
+     	下面的是onfocus事件触发：<br />
+		<input type="text" class="textinput" onfocus="$.cursorMessage('注意不能输入特殊字符');"/><br />
+		
+		下面的是onkeydown事件触发：<br />
+		<textarea class="textarea" onkeydown="$.cursorMessage('填写详细有助于我们更好地服务');"></textarea>
+	  </fieldset>
+	  <div class="height_15"></div>
+	  
+	  
+	  
+	</div></div></div></div><div class="box_bottomcenter"><div class="box_bottomleft"><div class="box_bottomright"></div></div></div></div>
+
+
+<script>
+		$(document).ready(function(){
+			$("#toolTipDemo").find("span").each(function(){
+				addTooltip($(this)[0]);
+			})
+		})
+</script>
+</body>
+</html>

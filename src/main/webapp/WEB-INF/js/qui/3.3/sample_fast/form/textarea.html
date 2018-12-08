@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>文本域</title>
+<!--框架必需start-->
+<script type="text/javascript" src="../../libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../libs/js/framework.js"></script>
+<link href="../../libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" id="skin" prePath="../../"/>
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+</head>
+<body>
+   <div class="box1" style="width: 800px;"><div class="box_topcenter"><div class="box_topleft"><div class="box_topright"></div></div></div><div class="box_middlecenter"><div class="box_middleleft"><div class="box_middleright"><div class="boxContent" style="overflow: visible;">
+	  <fieldset> 
+			<legend>1、基本文本域</legend>
+			<table width="100%" >
+				<tr>
+					<td width="10%">备注：</td><td width="90%"><textarea class="textarea"></textarea></td>
+				</tr>
+			</table>
+			如果希望出现鼠标移入和点击时边框变色，可以手动调用render()方法渲染。
+	   </fieldset> 
+	   <div class="height_15"></div>
+	   
+	   <fieldset> 
+			<legend>2、设置初始值</legend>
+			<table width="100%" >
+				<tr>
+					<td width="10%">备注：</td><td width="90%"><textarea class="textarea">这是初始值</textarea></td>
+				</tr>
+			</table>
+	   </fieldset> 
+	   <div class="height_15"></div>
+	   
+	   <fieldset> 
+			<legend>3、自定义尺寸</legend> 
+			<table width="100%" >
+				<tr>
+					<td width="10%">备注：</td><td width="90%"><textarea style="width:350px;height:150px;" class="textarea"></textarea></td>
+				</tr>
+			</table>
+	   </fieldset>
+	   <div class="height_15"></div>
+	   
+	   
+	   <fieldset> 
+			<legend>4、禁用/启用</legend>
+			<table width="100%">
+				<tr>
+					<td width="10%">备注：</td><td width="90%"><textarea id="textarea-9" disabled="true" class="textarea"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input type="button" class="button" value="启用" onclick="enableSelect()" style="width:105px;"/>
+      				  <input type="button" class="button" value="禁用" onclick="disableSelect()" style="width:105px;"/>
+					</td>
+				</tr>
+			</table>
+	   </fieldset>
+	   <div class="height_15"></div>
+	</div></div></div></div><div class="box_bottomcenter"><div class="box_bottomleft"><div class="box_bottomright"></div></div></div></div>
+
+
+
+<script type="text/javascript">
+	 //设为不可用
+	function disableSelect(){
+		$("#textarea-9").attr("disabled",true);
+	}
+	//设为可用
+	function enableSelect(){
+	    $("#textarea-9").attr("disabled",false);
+	}
+
+</script>
+
+</body>
+</html>
