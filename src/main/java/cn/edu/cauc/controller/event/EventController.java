@@ -85,11 +85,12 @@ public class EventController extends BaseController {
         if (eventViewList.size() == 0) {
            return JacksonUtil.ajaxJson(false, "无需要导出的数据");
         }
-        String sTitle = "数据来源,源编号,事故类型,当地日期,最后起飞地,目的地,事件发生地,天气状况,飞机损害程度,飞行阶段,事件描述,原因描述,飞机型号,飞机制造商,注册号,发动机制造商,发动机型号,发动机数量,运营商,运行规章,总飞行小时数,维修类型,维修后运行时间,污染物来源,涉及系统,故障位置,故障模式,预防/紧急措施,其他机组控制措施,维修措施,备注,机组死亡,机组重伤,机组轻伤,乘客死亡,乘客重伤,乘客轻伤";
+        String sTitle = "数据来源,源编号,事故类型,当地日期,最后起飞地,目的地,事件发生地,天气状况,飞机损害程度,飞行阶段,事件描述,原因描述,飞机型号,飞机制造商,注册号,发动机制造商,发动机型号,发动机数量,运营商,运行规章,总飞行小时数,维修类型,维修后运行时间,污染物来源,涉及系统,故障位置," +
+				"故障模式,预防/紧急措施,其他机组控制措施,维修措施,备注,机组死亡,机组重伤,机组轻伤,乘客死亡,乘客重伤,乘客轻伤,飞行性质,气候因素影响到人,气候因素直接影响飞机系统,存在人为因素";
         String fName = "event_";
         String mapKey = "source,sourceId,eventType,localDate,lastDeparturePoint,destinationLocal,eventLocation,weatherConditions,aircraftDamage,phaseFlight,eventRemarks,reasonRemarks,"
         		+ "aircraftModel,aircraftMake,registrationNumber,engineManufactuer,engineModel,numberOfEngines,operator,runRules,runTotalHours,maintainType,maintainHours,pullutantSource,relateToSystem,"
-        		+ "bugLocation,bugModel,prevent,controls,maintain,remark,crewFatal,crewSerious,crewMinor,passengerFatal,passengerSerious,passengerMinor";
+        		+ "bugLocation,bugModel,prevent,controls,maintain,remark,crewFatal,crewSerious,crewMinor,passengerFatal,passengerSerious,passengerMinor,flightProperties,isWeatherFactor,isAffectAircraftSystem,isArtificialFactor";
         eventDataList = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = null;
         for (EventView view : eventViewList) {
@@ -131,6 +132,10 @@ public class EventController extends BaseController {
             map.put("passengerFatal", viewNull(view.getPassengerFatal()));
             map.put("passengerSerious", viewNull(view.getPassengerSerious()));
             map.put("passengerMinor", viewNull(view.getPassengerMinor()));
+			map.put("flightProperties", viewNull(view.getFlightProperties()));
+			map.put("isWeatherFactor", viewNull(view.getIsWeatherFactor()));
+			map.put("isAffectAircraftSystem", viewNull(view.getIsAffectAircraftSystem()));
+			map.put("isArtificialFactor", viewNull(view.getIsArtificialFactor()));
 //            map.put("createDate", DateFormatUtils.format(order.getCreateDate(), "yyyy/MM/dd HH:mm"));
 
             eventDataList.add(map);
