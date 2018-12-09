@@ -94,8 +94,36 @@ $(function() {
 					</td>
 					<td width="15%">飞行阶段:</td>
 					<td width="35%">
-						<select  name="phaseFlight" selWidth="177" selectedValue="${eventView.phaseFlight}" prompt="请选择飞行阶段" 
+						<select  name="event.phaseFlight" selWidth="177" selectedValue="${eventView.phaseFlight}" prompt="请选择飞行阶段"
 							data='{"list":[{"value":"taxi","key":"taxi"},{"value":"takeoff","key":"Take off"},{"value":"climb","key":"climb"},{"value":"cruise","key":"cruise"},{"value":"descent","key":"descent"},{"value":"Approach","key":"Approach"},{"value":"landing","key":"landing"},{"value":"aborted","key":"aborted"},{"value":"other","key":"other"}]}'>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%">飞行性质:</td>
+					<td width="35%">
+						<select  name="event.flightProperties" selWidth="177" selectedValue="${eventView.flightProperties}" prompt="请选择飞行性质"
+								 data='{"list":[{"value":"121部","key":"121部"},{"value":"91部","key":"91部"}]}'>
+						</select>
+					</td>
+					<td width="15%">是否天气因素影响到人:</td>
+					<td width="35%">
+						<select  name="event.isWeatherFactor" selWidth="177" selectedValue="${eventView.isWeatherFactor}" prompt="请选择是否天气因素影响到人"
+								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%">是否影响到飞机系统:</td>
+					<td width="35%">
+						<select  name="event.isAffectAircraftSystem" selWidth="177" selectedValue="${eventView.isAffectAircraftSystem}" prompt="请选择是否影响到飞机系统"
+								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'>
+						</select>
+					</td>
+					<td width="15%">是否存在人为因素:</td>
+					<td width="35%">
+						<select  name="event.isArtificialFactor" selWidth="177" selectedValue="${eventView.isArtificialFactor}" prompt="请选择是否存在人为因素"
+								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'>
 						</select>
 					</td>
 				</tr>

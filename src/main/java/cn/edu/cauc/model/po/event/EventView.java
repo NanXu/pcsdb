@@ -152,6 +152,18 @@ public class EventView implements Serializable {
 	
 	@Column(name="PASSENGER_MINOR")
 	private Integer passengerMinor;//乘客轻伤
+
+	@Column(name="flight_properties")
+	private String flightProperties;//飞行特性
+
+	@Column(name="is_weather_factor")
+	private String isWeatherFactor;//是否天气因素影响到人
+
+	@Column(name="is_affect_aircraft_system")
+	private String isAffectAircraftSystem;//是否影响到飞机系统
+
+	@Column(name="is_artificial_factor")
+	private String isArtificialFactor;//是否存在人为因素
 	
 	@Transient
 	private String phaseDesc;
@@ -173,6 +185,9 @@ public class EventView implements Serializable {
 	
 	@Transient
 	private String localDateEnd;
+
+	@Transient
+	private String keywords;
 
 	public Integer getId() {
 		return id;
@@ -557,6 +572,44 @@ public class EventView implements Serializable {
 	public void setLocalDateEnd(String localDateEnd) {
 		this.localDateEnd = localDateEnd;
 	}
-	
-	
+
+	public String getFlightProperties() {
+		return flightProperties;
+	}
+
+	public void setFlightProperties(String flightProperties) {
+		this.flightProperties = flightProperties;
+	}
+
+	public String getIsWeatherFactor() {
+		return isWeatherFactor;
+	}
+
+	public void setIsWeatherFactor(String isWeatherFactor) {
+		this.isWeatherFactor = isWeatherFactor;
+	}
+
+	public String getIsAffectAircraftSystem() {
+		return isAffectAircraftSystem;
+	}
+
+	public void setIsAffectAircraftSystem(String isAffectAircraftSystem) {
+		this.isAffectAircraftSystem = isAffectAircraftSystem;
+	}
+
+	public String getIsArtificialFactor() {
+		return isArtificialFactor;
+	}
+
+	public void setIsArtificialFactor(String isArtificialFactor) {
+		this.isArtificialFactor = isArtificialFactor;
+	}
+
+	public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
 }

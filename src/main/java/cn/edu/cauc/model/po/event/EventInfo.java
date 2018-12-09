@@ -83,6 +83,18 @@ public class EventInfo implements Serializable {
 	
 	@Column(name="APPROVE_TIME")
 	private Date approveTime;
+
+	@Column(name="flight_properties")
+	private String flightProperties;//飞行特性
+
+	@Column(name="is_weather_factor")
+	private String isWeatherFactor;//是否天气因素影响到人
+
+	@Column(name="is_affect_aircraft_system")
+	private String isAffectAircraftSystem;//是否影响到飞机系统
+
+	@Column(name="is_artificial_factor")
+	private String isArtificialFactor;//是否存在人为因素
 	
 	@Column(name="STATUS", length=1)
 	private String status; //状态0：起草;1：发布;2:审批不通过
@@ -415,5 +427,36 @@ public class EventInfo implements Serializable {
 	public void setIsDelete(String isDelete) {
 		this.isDelete = isDelete;
 	}
-	
+
+	public String getFlightProperties() {
+		return flightProperties;
+	}
+
+	public void setFlightProperties(String flightProperties) {
+		this.flightProperties = flightProperties;
+	}
+
+	public String getIsWeatherFactor() {
+		return isWeatherFactor;
+	}
+
+	public void setIsWeatherFactor(String isWeatherFactor) {
+		this.isWeatherFactor = isWeatherFactor;
+	}
+
+	public String getIsAffectAircraftSystem() {
+		return isAffectAircraftSystem;
+	}
+
+	public void setIsAffectAircraftSystem(String isAffectAircraftSystem) {
+		this.isAffectAircraftSystem = isAffectAircraftSystem;
+	}
+
+	public String getIsArtificialFactor() {
+		return isArtificialFactor;
+	}
+
+	public void setIsArtificialFactor(String isArtificialFactor) {
+		this.isArtificialFactor = isArtificialFactor;
+	}
 }

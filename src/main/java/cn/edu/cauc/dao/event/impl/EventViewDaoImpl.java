@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -139,6 +140,31 @@ public class EventViewDaoImpl extends BaseDaoImpl<EventView> implements
 		//涉及系统
 		if(!StringUtil.isNull(event.getRelateToSystem())) {
 			criteria.add(Restrictions.like("relateToSystem", event.getRelateToSystem()+"%"));
+		}
+		if(!StringUtil.isNull(event.getFlightProperties())) {
+			criteria.add(Restrictions.eq("flightProperties", event.getFlightProperties()));
+		}
+		if(!StringUtil.isNull(event.getIsAffectAircraftSystem())) {
+			criteria.add(Restrictions.eq("isAffectAircraftSystem", event.getIsAffectAircraftSystem()));
+		}
+		if(!StringUtil.isNull(event.getIsArtificialFactor())) {
+			criteria.add(Restrictions.eq("isArtificialFactor", event.getIsArtificialFactor()));
+		}
+		if(!StringUtil.isNull(event.getIsWeatherFactor())) {
+			criteria.add(Restrictions.eq("isWeatherFactor", event.getIsWeatherFactor()));
+		}
+
+
+		if(!StringUtil.isNull(event.getKeywords())) {
+			Disjunction dis = Restrictions.disjunction();
+			String[] keywordsArr = event.getKeywords().split(",");
+			if (keywordsArr != null && keywordsArr.length > 0) {
+				for (String keyword : keywordsArr) {
+					dis.add(Restrictions.like("eventRemarks", "%"+keyword+"%"));
+					dis.add(Restrictions.like("reasonRemarks", "%"+keyword+"%"));
+				}
+			}
+			criteria.add(dis);
 		}
 	}
 	

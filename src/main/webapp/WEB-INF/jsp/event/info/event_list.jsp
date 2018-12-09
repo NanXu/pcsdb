@@ -12,6 +12,9 @@ $(function() {
 	//回显 数据来源的显示
 	var val = "${eventView.source}";
 	$("#selectTree").setValue(val);
+	var keywords = "${eventView.keywords}";
+    $("#kewordsSelectTree").setValue(keywords);
+
 	
 	$("#exportEvent").click(function() {
 		document.searchForm.action='${ctx}/event/info/exportEventData';
@@ -209,19 +212,48 @@ function detailEvents(id) {
 					<td width="20%">
 						<input type="text" style="width:177px;" name="operator" value="${eventView.operator }"/>
 					</td>
-					<td width="13%">污染物来源:</td>
-					<td width="20%">
-						<input type="text" style="width:177px;" name="pullutantSource" value="${eventView.pullutantSource }"/>
-					</td>
 					<td width="13%">备注:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="remark" value="${eventView.remark }"/>
 					</td>
+					<td width="13%">关键字:</td>
+					<td width="20%">
+						<div id="kewordsSelectTree" class="selectTree" name="keywords" multiMode="true" noGroup="true"
+							 data='{"treeNodes":[{ "id":"thunderstorm", "parentId":"0", "name":"thunderstorm"},
+							 { "id":"icing", "parentId":"0", "name":"icing"},{ "id":"rain", "parentId":"0", "name":"rain"},{ "id":"moisture", "parentId":"0", "name":"moisture"},
+							 { "id":"fog", "parentId":"0", "name":"fog"},{ "id":"snow", "parentId":"0", "name":"snow"},{ "id":"wet", "parentId":"0", "name":"wet"},{ "id":"crosswind", "parentId":"0", "name":"crosswind"},
+							 { "id":"freezing rain", "parentId":"0", "name":"freezing rain"},{ "id":"cold", "parentId":"0", "name":"cold"},{ "id":"low temperature", "parentId":"0", "name":"low temperature"},
+							 { "id":"turbulence", "parentId":"0", "name":"turbulence"},{ "id":"visibility", "parentId":"0", "name":"visibility"},{ "id":"bad weather", "parentId":"0", "name":"bad weather"},
+							 { "id":"nimbus", "parentId":"0", "name":"nimbus"},{ "id":"wind shear", "parentId":"0", "name":"wind shear"},{ "id":"gusty wind", "parentId":"0", "name":"gusty wind"},
+							 { "id":"overcast", "parentId":"0", "name":"overcast"},{ "id":"precipitation", "parentId":"0", "name":"precipitation"},{ "id":"freezing", "parentId":"0", "name":"freezing"},
+							 { "id":"ice", "parentId":"0", "name":"ice"},{ "id":"convective weather", "parentId":"0", "name":"convective weather"},{ "id":"low ceiling", "parentId":"0", "name":"low ceiling"},
+							 { "id":"obscuration", "parentId":"0", "name":"obscuration"},{ "id":"lightning", "parentId":"0", "name":"lightning"}
+							 ]}'>
+						</div>
+					</td>
 				</tr>
 				<tr>
-					<td width="13%">年龄:</td>
-					<td width="20%" colspan="8">
-						<input type="text" style="width:177px;" name="age" value=""/>
+					<td width="13%">飞行性质:</td>
+					<td width="20%">
+						<select  name="flightProperties" selWidth="177" selectedValue="${eventView.flightProperties}" prompt="请选择飞行性质"
+								 data='{"list":[{"value":"121部","key":"121部"},{"value":"91部","key":"91部"}]}'></select>
+					</td>
+					<td width="13%">气候因素影响到人:</td>
+					<td width="20%">
+						<select  name="isWeatherFactor" selWidth="177" selectedValue="${eventView.isWeatherFactor}" prompt="请选择是否气候因素影响到人"
+								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'></select>
+					</td>
+					<td width="13%">气候因素直接影响飞机系统:</td>
+					<td width="20%">
+						<select  name="isAffectAircraftSystem" selWidth="177" selectedValue="${eventView.isAffectAircraftSystem}" prompt="请选择是否气候因素直接影响飞机系统"
+								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'></select>
+					</td>
+				</tr>
+				<tr>
+					<td width="13%">气候因素直接影响飞机系统:</td>
+					<td width="20%">
+						<select  name="isArtificialFactor" selWidth="177" selectedValue="${eventView.isArtificialFactor}" prompt="请选择是否气候因素直接影响飞机系统"
+								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'></select>
 					</td>
 				</tr>
 				<tr>
