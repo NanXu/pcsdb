@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.edu.cauc.model.po.event.EventInfo;
 import cn.edu.cauc.model.vo.EventStatView;
+import cn.edu.cauc.model.vo.KeywordsStatView;
 import cn.edu.cauc.model.vo.Page;
 
 public interface IBaseDao<T> {
@@ -96,4 +97,6 @@ public interface IBaseDao<T> {
     public Page<EventInfo> findEventPagerListBySQL(String sql, Integer pageNo, Integer pageSize);
     
     public Page<EventStatView> findEventStatInfoBySQL(String type, String sql, Integer pageNo, Integer pageSize);
+
+    public Page<KeywordsStatView> findEventPagerByKeywords(String sql, Integer pageNo, Integer pageSize);
 }

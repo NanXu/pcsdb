@@ -2,6 +2,7 @@ package cn.edu.cauc.dao.statistics;
 
 import cn.edu.cauc.dao.base.IBaseDao;
 import cn.edu.cauc.model.vo.EventStatView;
+import cn.edu.cauc.model.vo.KeywordsStatView;
 import cn.edu.cauc.model.vo.Page;
 
 public interface IEventStatViewDao extends IBaseDao<EventStatView> {
@@ -171,4 +172,7 @@ public interface IEventStatViewDao extends IBaseDao<EventStatView> {
 	 */
 	public Page<EventStatView> statMaintainList(EventStatView eventStatView,
 			Integer pageNo, Integer pageSize);
+
+	public Page<KeywordsStatView> statKeywordsList(KeywordsStatView keywordsStatView,
+												   Integer pageNo, Integer pageSize);
 }

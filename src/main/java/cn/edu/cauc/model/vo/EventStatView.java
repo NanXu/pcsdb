@@ -46,6 +46,4 @@ public class EventStatView implements Serializable {
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	
-
 }

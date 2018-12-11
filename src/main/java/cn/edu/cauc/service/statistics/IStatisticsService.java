@@ -1,6 +1,7 @@
 package cn.edu.cauc.service.statistics;
 
 import cn.edu.cauc.model.vo.EventStatView;
+import cn.edu.cauc.model.vo.KeywordsStatView;
 import cn.edu.cauc.model.vo.Page;
 
 /**
@@ -12,4 +13,15 @@ import cn.edu.cauc.model.vo.Page;
 public interface IStatisticsService {
 
 	public Page<EventStatView> statEventInfo(EventStatView eventStatView, Integer pageNo, Integer pageSize);
+
+	/**
+	 * 通过关键词统计
+	 *
+	 * @param keywordsStatView
+	 * @param pageNo
+	 * @param pageSize
+	 * @return
+	 */
+	public Page<KeywordsStatView> statEventInfoByKeywords(KeywordsStatView keywordsStatView, Integer pageNo, Integer pageSize);
+
 }

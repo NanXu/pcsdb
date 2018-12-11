@@ -2,6 +2,7 @@ package cn.edu.cauc.service.statistics.impl;
 
 import javax.annotation.Resource;
 
+import cn.edu.cauc.model.vo.KeywordsStatView;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -74,6 +75,11 @@ public class StatisticsServiceImpl implements IStatisticsService {
 			}
 		}
 		return page;
+	}
+
+	@Override
+	public Page<KeywordsStatView> statEventInfoByKeywords(KeywordsStatView keywordsStatView, Integer pageNo, Integer pageSize) {
+		return null;
 	}
 
 }

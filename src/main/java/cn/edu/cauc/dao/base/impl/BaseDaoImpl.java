@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import cn.edu.cauc.model.vo.KeywordsStatView;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -153,6 +154,30 @@ public abstract class BaseDaoImpl<T> implements IBaseDao<T> {
 			  
 			  view.setType(type);
 			  statList.add(view);
+		}
+		page.setCount(count);
+		page.setList(statList);
+		return page;
+	}
+
+	@Override
+	public Page<KeywordsStatView> findEventPagerByKeywords(String sql, Integer pageNo, Integer pageSize) {
+		Page<KeywordsStatView> page = new Page<KeywordsStatView>();
+		Session session = this.getSession();
+		Query query = session.createSQLQuery(sql);
+		//.setResultTransformer(Transformers.aliasToBean(EventStatView.class));
+		//addEntity(EventStatView.class);
+		int count = query.list().size();
+		List list = query.setFirstResult(pageNo).setMaxResults(pageSize).list();
+		List<KeywordsStatView> statList = new ArrayList<KeywordsStatView>();
+		for(Iterator iterator = list.iterator();iterator.hasNext();) {
+			Object[] objects = (Object[]) iterator.next();
+			//EventStatView view = new EventStatView(objects[0].toString(), Long.valueOf(objects[1].toString()));
+			KeywordsStatView view = new KeywordsStatView();
+			view.setSource((String) objects[0]);
+			view.setTotal((Long) objects[1]);
+
+			statList.add(view);
 		}
 		page.setCount(count);
 		page.setList(statList);
