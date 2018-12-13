@@ -3,9 +3,9 @@ package cn.edu.cauc.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.apache.log4j.Logger;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.SerializationConfig;
 
 import cn.edu.cauc.model.vo.ValidateResult;
 
@@ -30,7 +30,7 @@ public class JacksonUtil {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "";
 		try {
-			mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, Boolean.TRUE);
+			mapper.configure(SerializationFeature.INDENT_OUTPUT, Boolean.TRUE);
 			json = mapper.writeValueAsString(obj);
 		} catch (Exception e) {
 			logger.debug("对象转化成JSON出错", e);

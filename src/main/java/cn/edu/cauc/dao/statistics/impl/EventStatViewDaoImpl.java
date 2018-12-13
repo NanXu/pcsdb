@@ -374,28 +374,29 @@ public class EventStatViewDaoImpl extends BaseDaoImpl<EventStatView> implements
 
 	@Override
 	public Page<KeywordsStatView> statKeywordsList(KeywordsStatView keywordsStatView, Integer pageNo, Integer pageSize) {
-		StringBuffer sql = new StringBuffer();
-		sql.append(
-				"select distinct source, count(1) as total ")
-				.append("from ev_event_info where status='1' ");
+//		StringBuffer sql = new StringBuffer();
+		String sql = "";
+		sql += "select distinct source, count(1) as total from ev_event_info where status='1' ";
 		if (!StringUtil.isNull(keywordsStatView.getKeywords())) {
 			String keywords = keywordsStatView.getKeywords();
 			String[] keywordsArr = keywords.split(",");
 			if (keywordsArr != null && keywordsArr.length > 0) {
-				sql.append("and ");
+				sql += "and ";
 				for (String keyword : keywordsArr) {
-					sql.append("event_remarks like '%" + keyword + "%'")
+					sql += "event_remarks like '%" + keyword + "%' or ";
+					sql += "reason_remarks like '%" + keyword + "%' or ";
 				}
+				sql = sql.substring(0, sql.length()-3);
 			}
 		}
-		if(!StringUtil.isNull(keywordsStatView.getStartDate())) {
-			sql.append("and local_date >= str_to_date('"+keywordsStatView.getStartDate()+"','%Y-%m-%d') ");
+		if (!StringUtil.isNull(keywordsStatView.getStartDate())) {
+			sql += " and local_date >= str_to_date('"+keywordsStatView.getStartDate()+"','%Y-%m-%d')";
 		}
-		if(!StringUtil.isNull(keywordsStatView.getEndDate())) {
-			sql.append("and local_date <= str_to_date('"+keywordsStatView.getEndDate()+"','%Y-%m-%d') ");
+		if (!StringUtil.isNull(keywordsStatView.getEndDate())) {
+			sql += " and local_date < str_to_date('"+keywordsStatView.getEndDate()+"','%Y-%m-%d') ";
 		}
-		sql.append("group by source");
-		return null;
+		sql += "group by source";
+		return findEventPagerByKeywords(sql,pageNo,  pageSize);
 	}
 
 }

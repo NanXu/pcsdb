@@ -175,7 +175,7 @@ public abstract class BaseDaoImpl<T> implements IBaseDao<T> {
 			//EventStatView view = new EventStatView(objects[0].toString(), Long.valueOf(objects[1].toString()));
 			KeywordsStatView view = new KeywordsStatView();
 			view.setSource((String) objects[0]);
-			view.setTotal((Long) objects[1]);
+			view.setTotal(Long.valueOf(objects[1].toString()));
 
 			statList.add(view);
 		}

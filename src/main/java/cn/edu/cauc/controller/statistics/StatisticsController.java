@@ -5,10 +5,7 @@ import javax.annotation.Resource;
 import cn.edu.cauc.model.vo.KeywordsStatView;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.edu.cauc.controller.base.BaseController;
@@ -53,6 +50,7 @@ public class StatisticsController extends BaseController {
 		return mv;
 	}
 
+	@RequestMapping(value="/keywords")
 	public ModelAndView statByKewords(@ModelAttribute KeywordsStatView keywordsStatView,
 									  @RequestParam(value="pageNo", defaultValue="1") Integer pageNo,
 									  @RequestParam(value="pageSize", required = false) Integer pageSize) {

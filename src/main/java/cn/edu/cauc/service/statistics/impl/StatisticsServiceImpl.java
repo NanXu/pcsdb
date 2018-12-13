@@ -79,7 +79,7 @@ public class StatisticsServiceImpl implements IStatisticsService {
 
 	@Override
 	public Page<KeywordsStatView> statEventInfoByKeywords(KeywordsStatView keywordsStatView, Integer pageNo, Integer pageSize) {
-		return null;
+		return eventStatViewDao.statKeywordsList(keywordsStatView, pageNo,pageSize );
 	}
 
 }
