@@ -54,6 +54,18 @@ $(function() {
 					<td width="35%">${event.phaseFlight }</td>
 				</tr>
 				<tr>
+					<td width="15%">飞行性质:</td>
+					<td width="35%">${event.flightProperties }</td>
+					<td width="15%">是否天气因素影响到人:</td>
+					<td width="35%">${event.isWeatherFactor }</td>
+				</tr>
+				<tr>
+					<td width="15%">是否影响到飞机系统:</td>
+					<td width="35%">${event.isAffectAircraftSystem }</td>
+					<td width="15%">是否存在人为因素:</td>
+					<td width="35%">${event.isArtificialFactor }</td>
+				</tr>
+				<tr>
 					<td width="15%">事件描述:</td>
 					<td width="85%" colspan="3">
 						<textarea style="width:100%;" readonly="readonly">${event.eventRemarks }</textarea>

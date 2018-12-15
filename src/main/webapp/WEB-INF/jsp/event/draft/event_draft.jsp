@@ -15,7 +15,6 @@ $(function() {
 	});*/
 	
 	$("#saveEventButton").click(function() {
-		debugger;
 		var serialize = $("#eventAddForm").serialize();
 		var url = '${ctx}/event/draft/addEvent';
 		$.post(url, serialize, function(data) {
@@ -107,13 +106,41 @@ $(function() {
 						</td>
 						<td width="15%">飞行阶段:</td>
 						<td width="35%">
-							<select  name="phaseFlight" selWidth="177" selectedValue="${eventView.phaseFlight}" prompt="请选择飞行阶段" 
+							<select  name="phaseFlight" selWidth="177" selectedValue="${event.phaseFlight}" prompt="请选择飞行阶段"
 								data='{"list":[{"value":"taxi","key":"taxi"},{"value":"takeoff","key":"Take off"},{"value":"climb","key":"climb"},{"value":"cruise","key":"cruise"},{"value":"descent","key":"descent"},{"value":"Approach","key":"Approach"},{"value":"landing","key":"landing"},{"value":"aborted","key":"aborted"},{"value":"other","key":"other"}]}'
 								class="validate[required] float_left">
 							</select>
 							<span class="star float_left">*</span>
 							<div class="validation_info"></div><div class="clear"></div>
 							<%-- <input type="text" style="width:70%;" name="event.phaseFlight" value="${event.phaseFlight }" /> --%>
+						</td>
+					</tr>
+					<tr>
+						<td width="15%">飞行性质:</td>
+						<td width="35%">
+							<select  name="event.flightProperties" selWidth="177" selectedValue="${event.flightProperties}" prompt="请选择飞行性质"
+									 data='{"list":[{"value":"121部","key":"121部"},{"value":"91部","key":"91部"}]}'>
+							</select>
+						</td>
+						<td width="15%">是否天气因素影响到人:</td>
+						<td width="35%">
+							<select  name="event.isWeatherFactor" selWidth="177" selectedValue="${event.isWeatherFactor}" prompt="请选择是否天气因素影响到人"
+									 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="15%">是否影响到飞机系统:</td>
+						<td width="35%">
+							<select  name="event.isAffectAircraftSystem" selWidth="177" selectedValue="${event.isAffectAircraftSystem}" prompt="请选择是否影响到飞机系统"
+									 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'>
+							</select>
+						</td>
+						<td width="15%">是否存在人为因素:</td>
+						<td width="35%">
+							<select  name="event.isArtificialFactor" selWidth="177" selectedValue="${event.isArtificialFactor}" prompt="请选择是否存在人为因素"
+									 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'>
+							</select>
 						</td>
 					</tr>
 					<tr>
