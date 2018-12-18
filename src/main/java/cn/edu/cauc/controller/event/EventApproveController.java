@@ -111,7 +111,7 @@ public class EventApproveController extends BaseController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/approveEvent", method=RequestMethod.POST)
+	@RequestMapping(value="/approveEvent", method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public String approveEvent(@ModelAttribute ApproveInfo approveInfo) {
 		try {
 			if(approveInfo != null) {

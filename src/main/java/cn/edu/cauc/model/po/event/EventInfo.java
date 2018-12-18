@@ -66,7 +66,7 @@ public class EventInfo implements Serializable {
 	@Column(name="PHASE_FLIGHT")
 	private String phaseFlight; //飞行阶段
 	
-	@Column(name="EVENT_REMARKS", length=2000)
+	@Column(name= "EVENT_REMARKS", length=2000)
 	private String eventRemarks; //事件描述
 	
 	@Column(name="REASON_REMARKS", length=2000)

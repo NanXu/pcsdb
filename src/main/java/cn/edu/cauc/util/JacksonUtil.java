@@ -32,6 +32,8 @@ public class JacksonUtil {
 		try {
 			mapper.configure(SerializationFeature.INDENT_OUTPUT, Boolean.TRUE);
 			json = mapper.writeValueAsString(obj);
+
+			System.out.println(json);
 		} catch (Exception e) {
 			logger.debug("对象转化成JSON出错", e);
 			//e.printStackTrace();

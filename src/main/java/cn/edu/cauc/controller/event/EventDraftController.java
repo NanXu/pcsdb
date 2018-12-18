@@ -68,7 +68,7 @@ public class EventDraftController extends BaseController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/addEvent", method=RequestMethod.POST)
+	@RequestMapping(value="/addEvent", method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public String addEvent(@ModelAttribute("eventAddForm") EventForm eventForm) {
 		try {
 			if(eventForm != null) {
@@ -135,7 +135,7 @@ public class EventDraftController extends BaseController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/editEvent", method=RequestMethod.POST)
+	@RequestMapping(value="/editEvent", method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public String editEvent(@ModelAttribute("editDraftEventForm") EventForm eventForm) {
 		try {
 			if(eventForm != null) {

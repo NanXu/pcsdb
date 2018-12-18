@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=9" ></meta>
-<title>客舱烟雾数据库系统</title>
+<title>气候相关民用飞机事故数据库</title>
 <%@ include file="qui.jsp"%>
 <script>
 function bookmarksite(title, url){

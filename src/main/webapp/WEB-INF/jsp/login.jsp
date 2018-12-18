@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>客舱烟雾数据库系统</title>
+<title>气候相关民用飞机事故数据库</title>
 <link href="<%=basePath%>/css/login/skin/style.css" rel="stylesheet" type="text/css" id="skin"/>
 
 <script type="text/javascript" src="<%=basePath%>/js/md5.js"></script>

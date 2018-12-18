@@ -178,7 +178,7 @@ public class EventController extends BaseController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/editEvent", method=RequestMethod.POST)
+	@RequestMapping(value="/editEvent", method=RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public String editEvent(@ModelAttribute("editEventForm") EventForm eventForm) {
 		try {
 			if(eventForm != null) {
@@ -249,7 +249,7 @@ public class EventController extends BaseController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/deleteEvent", method = RequestMethod.POST)
+	@RequestMapping(value="/deleteEvent", method = RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public String deleteEvent(@RequestParam(value="deleteIDs") String ids) {
 		try {
 			eventService.deleteEvents(ids);

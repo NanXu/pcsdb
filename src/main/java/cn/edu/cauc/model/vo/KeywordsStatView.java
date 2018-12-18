@@ -17,6 +17,7 @@ public class KeywordsStatView implements Serializable {
     private String endDate;
     private long total;
     private String source;
+    private String phaseFlight;
 
     public String getKeywords() {
         return keywords;
@@ -56,5 +57,13 @@ public class KeywordsStatView implements Serializable {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getPhaseFlight() {
+        return phaseFlight;
+    }
+
+    public void setPhaseFlight(String phaseFlight) {
+        this.phaseFlight = phaseFlight;
     }
 }

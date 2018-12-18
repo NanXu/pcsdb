@@ -381,12 +381,13 @@ public class EventStatViewDaoImpl extends BaseDaoImpl<EventStatView> implements
 			String keywords = keywordsStatView.getKeywords();
 			String[] keywordsArr = keywords.split(",");
 			if (keywordsArr != null && keywordsArr.length > 0) {
-				sql += "and ";
+				sql += "and (";
 				for (String keyword : keywordsArr) {
 					sql += "event_remarks like '%" + keyword + "%' or ";
 					sql += "reason_remarks like '%" + keyword + "%' or ";
 				}
 				sql = sql.substring(0, sql.length()-3);
+				sql+= ") ";
 			}
 		}
 		if (!StringUtil.isNull(keywordsStatView.getStartDate())) {
@@ -394,6 +395,9 @@ public class EventStatViewDaoImpl extends BaseDaoImpl<EventStatView> implements
 		}
 		if (!StringUtil.isNull(keywordsStatView.getEndDate())) {
 			sql += " and local_date < str_to_date('"+keywordsStatView.getEndDate()+"','%Y-%m-%d') ";
+		}
+		if (!StringUtil.isNull(keywordsStatView.getPhaseFlight())) {
+			sql += " and phase_flight like '%"+keywordsStatView.getPhaseFlight()+"%'";
 		}
 		sql += "group by source";
 		return findEventPagerByKeywords(sql,pageNo,  pageSize);

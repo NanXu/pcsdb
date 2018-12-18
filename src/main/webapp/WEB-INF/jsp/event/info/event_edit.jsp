@@ -14,6 +14,7 @@ $(function() {
 		var url = '${ctx}/event/info/editEvent';
 		$.post(url, serialize, function(data) {
 			if(data.success) {
+				debugger;
 				window.parent.topWin.Dialog.alert(data.msg+"|提示",function(){
 					window.parent.changeIFrame('${ctx}/event/info/listEvents');
 					window.parent.topWin.Dialog.close();
