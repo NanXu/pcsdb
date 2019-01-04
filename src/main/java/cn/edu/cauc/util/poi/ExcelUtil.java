@@ -127,7 +127,7 @@ public class ExcelUtil {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, Exception {
-		String pathname = "E:/work/cauc.edu/data/AIDS_REPORTS.xls";
+		String pathname = "E:\\pcsdb\\data\\91.xlsx";
 		File file = new File(pathname);
 		ExcelUtil excelUtil = new ExcelUtil();
 		List<List<Object>> list = excelUtil.getBankListByExcel(new FileInputStream(file), file.getName());

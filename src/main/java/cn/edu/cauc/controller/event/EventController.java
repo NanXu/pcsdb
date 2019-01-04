@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.edu.cauc.service.event.IAidsCsvDataService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
@@ -51,6 +52,13 @@ public class EventController extends BaseController {
 	
 	@Resource
 	private IEventService eventService;
+	@Resource
+	private IAidsCsvDataService aidsCsvDataService;
+
+	@RequestMapping(value="/addAidsCsvData", method=RequestMethod.POST)
+	public void addAidsCsvData() {
+		aidsCsvDataService.addEvent();
+	}
 	
 	@RequestMapping(value="/listEvents")
 	public ModelAndView listEvents(@ModelAttribute EventView event, 

@@ -1,5 +1,6 @@
 package cn.edu.cauc.service.event;
 
+import java.io.IOException;
 import java.util.List;
 
 import cn.edu.cauc.model.po.event.ApproveInfo;
@@ -153,6 +154,5 @@ public interface IEventService {
 	public void modifyMeasures(Measures m);
 
 	public void deleteEvents(String ids);
-
 
 }

@@ -214,7 +214,7 @@ public class DateUtil {
     public static String day2String(Date date) {
     	return sdfDay.format(date);
     }
-    
+
     public static void main(String[] args) {
     	System.out.println(getDays());
     	System.out.println(getAfterDayWeek("3"));
