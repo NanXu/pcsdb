@@ -98,5 +98,5 @@ public interface IBaseDao<T> {
     
     public Page<EventStatView> findEventStatInfoBySQL(String type, String sql, Integer pageNo, Integer pageSize);
 
-    public Page<KeywordsStatView> findEventPagerByKeywords(String sql, Integer pageNo, Integer pageSize);
+    public List<KeywordsStatView> findEventPagerByKeywords(String sql, Integer pageNo, Integer pageSize);
 }

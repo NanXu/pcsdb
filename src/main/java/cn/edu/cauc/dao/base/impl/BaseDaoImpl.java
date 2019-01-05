@@ -161,8 +161,8 @@ public abstract class BaseDaoImpl<T> implements IBaseDao<T> {
 	}
 
 	@Override
-	public Page<KeywordsStatView> findEventPagerByKeywords(String sql, Integer pageNo, Integer pageSize) {
-		Page<KeywordsStatView> page = new Page<KeywordsStatView>();
+	public List<KeywordsStatView> findEventPagerByKeywords(String sql, Integer pageNo, Integer pageSize) {
+		//Page<KeywordsStatView> page = new Page<KeywordsStatView>();
 		Session session = this.getSession();
 		Query query = session.createSQLQuery(sql);
 		//.setResultTransformer(Transformers.aliasToBean(EventStatView.class));
@@ -179,9 +179,9 @@ public abstract class BaseDaoImpl<T> implements IBaseDao<T> {
 
 			statList.add(view);
 		}
-		page.setCount(count);
-		page.setList(statList);
-		return page;
+		//page.setCount(count);
+		//page.setList(statList);
+		return statList;
 	}
 
 	protected Session getSession() {

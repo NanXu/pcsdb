@@ -1,6 +1,8 @@
 package cn.edu.cauc.dao.statistics.impl;
 
 import cn.edu.cauc.model.vo.KeywordsStatView;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 import cn.edu.cauc.dao.base.impl.BaseDaoImpl;
@@ -8,6 +10,11 @@ import cn.edu.cauc.dao.statistics.IEventStatViewDao;
 import cn.edu.cauc.model.vo.EventStatView;
 import cn.edu.cauc.model.vo.Page;
 import cn.edu.cauc.util.StringUtil;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository("eventStatViewDao")
 public class EventStatViewDaoImpl extends BaseDaoImpl<EventStatView> implements
@@ -373,22 +380,18 @@ public class EventStatViewDaoImpl extends BaseDaoImpl<EventStatView> implements
 	}
 
 	@Override
-	public Page<KeywordsStatView> statKeywordsList(KeywordsStatView keywordsStatView, Integer pageNo, Integer pageSize) {
+	public long statKeywordsList(KeywordsStatView keywordsStatView, Integer pageNo, Integer pageSize, String keyword) {
 //		StringBuffer sql = new StringBuffer();
+		Session session = this.getSession();
+
 		String sql = "";
-		sql += "select distinct source, count(1) as total from ev_event_info where status='1' ";
-		if (!StringUtil.isNull(keywordsStatView.getKeywords())) {
-			String keywords = keywordsStatView.getKeywords();
-			String[] keywordsArr = keywords.split(",");
-			if (keywordsArr != null && keywordsArr.length > 0) {
-				sql += "and (";
-				for (String keyword : keywordsArr) {
-					sql += "event_remarks like '%" + keyword + "%' or ";
-					sql += "reason_remarks like '%" + keyword + "%' or ";
-				}
-				sql = sql.substring(0, sql.length()-3);
-				sql+= ") ";
-			}
+		sql += "select count(1) as total from ev_event_info where status='1' ";
+		sql += "and (";
+			sql += "event_remarks like '%" + keyword + "%' or ";
+			sql += "reason_remarks like '%" + keyword + "%' ";
+		sql+= ") ";
+		if (!StringUtil.isNull(keywordsStatView.getSource())) {
+			sql += " and source = '" + keywordsStatView.getSource() +"' ";
 		}
 		if (!StringUtil.isNull(keywordsStatView.getStartDate())) {
 			sql += " and local_date >= str_to_date('"+keywordsStatView.getStartDate()+"','%Y-%m-%d')";
@@ -396,11 +399,11 @@ public class EventStatViewDaoImpl extends BaseDaoImpl<EventStatView> implements
 		if (!StringUtil.isNull(keywordsStatView.getEndDate())) {
 			sql += " and local_date < str_to_date('"+keywordsStatView.getEndDate()+"','%Y-%m-%d') ";
 		}
-		if (!StringUtil.isNull(keywordsStatView.getPhaseFlight())) {
-			sql += " and phase_flight like '%"+keywordsStatView.getPhaseFlight()+"%'";
+		if (!StringUtil.isNull(keywordsStatView.getFlightProperties())) {
+			sql += " and flight_properties = '" +keywordsStatView.getFlightProperties() +"' ";
 		}
-		sql += "group by source";
-		return findEventPagerByKeywords(sql,pageNo,  pageSize);
+		Query query = session.createSQLQuery(sql);
+		return ((BigInteger)query.uniqueResult()).longValue();
 	}
 
 }

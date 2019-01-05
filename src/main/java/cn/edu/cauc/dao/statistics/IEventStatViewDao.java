@@ -5,6 +5,8 @@ import cn.edu.cauc.model.vo.EventStatView;
 import cn.edu.cauc.model.vo.KeywordsStatView;
 import cn.edu.cauc.model.vo.Page;
 
+import java.util.List;
+
 public interface IEventStatViewDao extends IBaseDao<EventStatView> {
 
 	/**
@@ -173,6 +175,6 @@ public interface IEventStatViewDao extends IBaseDao<EventStatView> {
 	public Page<EventStatView> statMaintainList(EventStatView eventStatView,
 			Integer pageNo, Integer pageSize);
 
-	public Page<KeywordsStatView> statKeywordsList(KeywordsStatView keywordsStatView,
-												   Integer pageNo, Integer pageSize);
+	public long statKeywordsList(KeywordsStatView keywordsStatView,
+												   Integer pageNo, Integer pageSize, String keword);
 }

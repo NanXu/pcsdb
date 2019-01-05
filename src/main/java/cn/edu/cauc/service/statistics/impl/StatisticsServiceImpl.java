@@ -12,9 +12,41 @@ import cn.edu.cauc.model.vo.Page;
 import cn.edu.cauc.service.statistics.IStatisticsService;
 import cn.edu.cauc.util.StringUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Transactional
 @Service("statisticsService")
 public class StatisticsServiceImpl implements IStatisticsService {
+
+	private static final List<String> keywordsList = new ArrayList<String>();
+	static {
+		keywordsList.add("thunderstorm");
+		keywordsList.add("icing");
+		keywordsList.add("rain");
+		keywordsList.add("moisture");
+		keywordsList.add("fog");
+		keywordsList.add("snow");
+		keywordsList.add("wet");
+		keywordsList.add("crosswind");
+		keywordsList.add("freezing rain");
+		keywordsList.add("cold");
+		keywordsList.add("low temperature");
+		keywordsList.add("turbulence");
+		keywordsList.add("visibility");
+		keywordsList.add("bad weather");
+		keywordsList.add("nimbus");
+		keywordsList.add("wind shear");
+		keywordsList.add("gusty wind");
+		keywordsList.add("overcast");
+		keywordsList.add("precipitation");
+		keywordsList.add("freezing");
+		keywordsList.add("ice");
+		keywordsList.add("convective weather");
+		keywordsList.add("low ceiling");
+		keywordsList.add("obscuration");
+		keywordsList.add("lightning");
+	}
 	
 	@Resource
 	private IEventStatViewDao eventStatViewDao;
@@ -79,7 +111,18 @@ public class StatisticsServiceImpl implements IStatisticsService {
 
 	@Override
 	public Page<KeywordsStatView> statEventInfoByKeywords(KeywordsStatView keywordsStatView, Integer pageNo, Integer pageSize) {
-		return eventStatViewDao.statKeywordsList(keywordsStatView, pageNo,pageSize );
+		Page<KeywordsStatView> page = new Page<KeywordsStatView>();
+		List<KeywordsStatView> list = new ArrayList<KeywordsStatView>();
+		for (String keyword : keywordsList) {
+			KeywordsStatView  view = new KeywordsStatView();
+			Long total = eventStatViewDao.statKeywordsList(keywordsStatView, pageNo,pageSize, keyword);
+			view.setKeyword(keyword);
+			view.setTotal(total);
+			list.add(view);
+		}
+		page.setCount(keywordsList.size());
+		page.setList(list);
+		return page;
 	}
 
 }

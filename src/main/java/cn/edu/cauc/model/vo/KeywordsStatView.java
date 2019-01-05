@@ -12,19 +12,19 @@ public class KeywordsStatView implements Serializable {
 
     private static final long serialVersionUID = -9115284522388671388L;
 
-    private String keywords;
+    private String keyword;
     private String startDate;
     private String endDate;
     private long total;
     private String source;
-    private String phaseFlight;
+    private String flightProperties;
 
-    public String getKeywords() {
-        return keywords;
+    public String getKeyword() {
+        return keyword;
     }
 
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public String getStartDate() {
@@ -59,11 +59,15 @@ public class KeywordsStatView implements Serializable {
         this.source = source;
     }
 
-    public String getPhaseFlight() {
-        return phaseFlight;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public void setPhaseFlight(String phaseFlight) {
-        this.phaseFlight = phaseFlight;
+    public String getFlightProperties() {
+        return flightProperties;
+    }
+
+    public void setFlightProperties(String flightProperties) {
+        this.flightProperties = flightProperties;
     }
 }
