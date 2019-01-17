@@ -134,10 +134,10 @@ function detailEvents(id) {
 					</td>
 				</tr>
 				<tr>
-					<td width="13%">故障模式:</td>
+					<%--<td width="13%">故障模式:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="bugModel" value="${eventView.bugModel }"/>
-					</td>
+					</td>--%>
 					<td width="13%">事件描述:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="eventRemarks" value="${eventView.eventRemarks }"/>
@@ -146,8 +146,22 @@ function detailEvents(id) {
 					<td width="20%">
 						<input type="text" style="width:177px;" name="reasonRemarks" value="${eventView.reasonRemarks }"/>
 					</td>
+						<td width="13%">涉及系统：</td>
+						<td width="20%">
+							<select  name="relateToSystem" selWidth="177" selectedValue="${eventView.relateToSystem}" prompt="请选择涉及系统"
+									 data='{"list":
+						[{"value":"21","key":"21 空调系统"},{"value":"24","key":"24 电源"},{"value":"25","key":"25 设备/装饰"},{"value":"26","key":"26 防火"},
+						{"value":"27","key":"27 飞行操纵"},{"value":"28","key":"28 燃油"},{"value":"29","key":"29 液压动力"},{"value":"30","key":"30 防冰和排雨"},
+						{"value":"31","key":"31 仪表"},{"value":"32","key":"32 起落架"},{"value":"33","key":"33 灯光"},{"value":"34","key":"34 导航"},
+						{"value":"35","key":"35 氧气"},{"value":"36","key":"36 气源"},{"value":"38","key":"38 水/污水"},{"value":"49","key":"49 机载辅助动力"},
+						{"value":"51","key":"51 标准施工/结构"},{"value":"52","key":"52 舱门"},{"value":"53","key":"53 机身"},{"value":"54","key":"54 吊舱/吊架"},
+						{"value":"55","key":"55 安定面"},{"value":"56","key":"56 窗"},{"value":"57","key":"57 机翼"},{"value":"61","key":"61 螺旋桨/推进器"},
+						{"value":"63","key":"63 主旋翼传动"},{"value":"71","key":"71 动力装置"},{"value":"72","key":"72 涡轮/涡轮螺旋桨发动机"},{"value":"73","key":"73 发动机燃油和控制"},
+						{"value":"74","key":"74 点火"},{"value":"75","key":"75 空气"},{"value":"76","key":"76 发动机控制"},{"value":"77","key":"77 发动机指示"},
+						{"value":"78","key":"78 发动机排气"},{"value":"79","key":"79 发动机滑油"},{"value":"80","key":"80 起动"},{"value":"81","key":"81 涡轮增压"}]}'></select>
+						</td>
 				</tr>
-				<tr>
+				<%--<tr>
 					<td width="13%">预防/紧急措施:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="prevent" value="${eventView.prevent }"/>
@@ -160,22 +174,8 @@ function detailEvents(id) {
 					<td width="20%">
 						<input type="text" style="width:177px;" name="maintain" value="${eventView.maintain }"/>
 					</td>
-				</tr>
+				</tr>--%>
 				<tr>
-					<td width="13%">涉及系统：</td>
-					<td width="20%">
-						<select  name="relateToSystem" selWidth="177" selectedValue="${eventView.relateToSystem}" prompt="请选择涉及系统" 
-						data='{"list":
-						[{"value":"21","key":"21 空调系统"},{"value":"24","key":"24 电源"},{"value":"25","key":"25 设备/装饰"},{"value":"26","key":"26 防火"},
-						{"value":"27","key":"27 飞行操纵"},{"value":"28","key":"28 燃油"},{"value":"29","key":"29 液压动力"},{"value":"30","key":"30 防冰和排雨"},
-						{"value":"31","key":"31 仪表"},{"value":"32","key":"32 起落架"},{"value":"33","key":"33 灯光"},{"value":"34","key":"34 导航"},
-						{"value":"35","key":"35 氧气"},{"value":"36","key":"36 气源"},{"value":"38","key":"38 水/污水"},{"value":"49","key":"49 机载辅助动力"},
-						{"value":"51","key":"51 标准施工/结构"},{"value":"52","key":"52 舱门"},{"value":"53","key":"53 机身"},{"value":"54","key":"54 吊舱/吊架"},
-						{"value":"55","key":"55 安定面"},{"value":"56","key":"56 窗"},{"value":"57","key":"57 机翼"},{"value":"61","key":"61 螺旋桨/推进器"},
-						{"value":"63","key":"63 主旋翼传动"},{"value":"71","key":"71 动力装置"},{"value":"72","key":"72 涡轮/涡轮螺旋桨发动机"},{"value":"73","key":"73 发动机燃油和控制"},
-						{"value":"74","key":"74 点火"},{"value":"75","key":"75 空气"},{"value":"76","key":"76 发动机控制"},{"value":"77","key":"77 发动机指示"},
-						{"value":"78","key":"78 发动机排气"},{"value":"79","key":"79 发动机滑油"},{"value":"80","key":"80 起动"},{"value":"81","key":"81 涡轮增压"}]}'></select>
-					</td>
 					<td width="13%">飞机制造商:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="aircraftMake" value="${eventView.aircraftMake }"/>
@@ -184,38 +184,32 @@ function detailEvents(id) {
 					<td width="20%">
 						<input type="text" style="width:177px;" name="aircraftModel" value="${eventView.aircraftModel }"/>
 					</td>
+					<td width="13%">损伤程度:</td>
+					<td width="20%">
+						<select  name="aircraftDamage" selWidth="177" selectedValue="${eventView.aircraftDamage}" prompt="请选择飞机损害程度"
+								 data='{"list":[{"value":"destroy","key":"destroy"},{"value":"minor","key":"minor"},{"value":"none","key":"none"},{"value":"substantial","key":"substantial"},{"value":"unknown","key":"unknown"}]}'></select>
+					</td>
 				</tr>
 				<tr>
-					<td width="13%">损伤程度:</td>
-					<%-- <td width="20%">
-						<input type="text" style="width:177px;" name="aircraftDamage" value="${eventView.aircraftDamage }"/>
-					</td> --%>
-					<td width="20%">
-						<select  name="aircraftDamage" selWidth="177" selectedValue="${eventView.aircraftDamage}" prompt="请选择飞机损害程度" 
-						data='{"list":[{"value":"destroy","key":"destroy"},{"value":"minor","key":"minor"},{"value":"none","key":"none"},{"value":"substantial","key":"substantial"},{"value":"unknown","key":"unknown"}]}'></select>
-					</td>
 					<td width="13%">发动机型号:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="engineModel" value="${eventView.engineModel }"/>
 					</td>
 					<td width="13%">发动机数量:</td>
-					<%-- <td width="20%">
-						<input type="text" style="width:177px;" name="numberOfEngines" value="${eventView.numberOfEngines }"/>
-					</td> --%>
 					<td width="20%">
 						<select  name="numberOfEngines" selWidth="177" selectedValue="${eventView.numberOfEngines}" prompt="请选择发动机数量" 
 						data='{"list":[{"value":"2","key":"2"},{"value":"3","key":"3"},{"value":"4","key":"4"},{"value":"unknown","key":"unknown"}]}'></select>
 					</td>
-				</tr>
-				<tr>
 					<td width="13%">运营商:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="operator" value="${eventView.operator }"/>
 					</td>
-					<td width="13%">备注:</td>
+				</tr>
+				<tr>
+					<%--<td width="13%">备注:</td>
 					<td width="20%">
 						<input type="text" style="width:177px;" name="remark" value="${eventView.remark }"/>
-					</td>
+					</td>--%>
 					<td width="13%">关键字:</td>
 					<td width="20%">
 						<div id="kewordsSelectTree" class="selectTree" name="keywords" multiMode="true" noGroup="true"
@@ -231,8 +225,6 @@ function detailEvents(id) {
 							 ]}'>
 						</div>
 					</td>
-				</tr>
-				<tr>
 					<td width="13%">飞行性质:</td>
 					<td width="20%">
 						<select  name="flightProperties" selWidth="177" selectedValue="${eventView.flightProperties}" prompt="请选择飞行性质"
@@ -243,13 +235,13 @@ function detailEvents(id) {
 						<select  name="isWeatherFactor" selWidth="177" selectedValue="${eventView.isWeatherFactor}" prompt="请选择是否气候因素影响到人"
 								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'></select>
 					</td>
+				</tr>
+				<tr>
 					<td width="13%">气候因素直接影响飞机系统:</td>
 					<td width="20%">
 						<select  name="isAffectAircraftSystem" selWidth="177" selectedValue="${eventView.isAffectAircraftSystem}" prompt="请选择是否气候因素直接影响飞机系统"
 								 data='{"list":[{"value":"Y","key":"Y"},{"value":"N","key":"N"}]}'></select>
 					</td>
-				</tr>
-				<tr>
 					<td width="13%">气候因素直接影响飞机系统:</td>
 					<td width="20%">
 						<select  name="isArtificialFactor" selWidth="177" selectedValue="${eventView.isArtificialFactor}" prompt="请选择是否气候因素直接影响飞机系统"
